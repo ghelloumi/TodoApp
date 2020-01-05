@@ -1,11 +1,9 @@
 import { ACTIONS } from "../config/constants"
 
-let nextTodoId = 0
-
-export const addTodoAction = (addTodoText, pictureUrl) => ({
+export const addTodoAction = (addTodoText, pictureUrl, id) => ({
   type: ACTIONS.ADD_TODO,
   pictureUrl,
-  id: nextTodoId++,
+  id,
   addTodoText
 })
 

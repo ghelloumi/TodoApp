@@ -40,7 +40,7 @@ const Modal = () => {
       <Button className="todo-button-close" icon={ICONS.closeIcon} onClick={handleCompleteEditTodo}/>
       <h2>Edit Todo</h2>
       <div className="todo-modal">
-        <div className="todo-modal-picture"><img src={todoInfo.pictureUrl}/></div>
+        <div className="todo-modal-picture"><img src={todoInfo.pictureUrl} alt="todo cat"/></div>
         <div className="todo-modal-content">
           <div className="todo-modal-content-description">
             <h4>{TEXTS.description}</h4>

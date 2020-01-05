@@ -12,7 +12,7 @@ const initialState = {
   todoList: JSON.parse(localStorage.getItem('todoList'))
 }
 
-export default function configureStore(preloadedStore = initialState) {
+export default function configureStore(preloadedStore = initialState.todoList ? initialState: undefined) {
   return createStore(
     reducers,
     preloadedStore,

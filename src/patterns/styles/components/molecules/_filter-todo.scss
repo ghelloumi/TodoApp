@@ -1,7 +1,3 @@
 .todo-filter {
-  > p {
-    margin-right: 15px;
-  }
-
-  @include flex-center($flex-direction: row);
+  @include flex-center($flex-direction: row)
 }

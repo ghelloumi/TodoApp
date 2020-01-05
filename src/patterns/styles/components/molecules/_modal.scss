@@ -4,7 +4,9 @@
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
-  border: 1px solid grey;
+  border: 1px solid #b9b9b9;
+  z-index: 2;
+  border-radius: 6px;
 
   > h2 {
     text-align: center;
@@ -31,14 +33,27 @@
 
     &-content {
       margin-left: 50px;
+      @include flex-center($align-items: flex-start);
 
-      &-description {
-
+      h4 {
+        margin: 8px 0;
       }
 
-      &-state {
-
+      &-description {
+        > input {
+          height: 34px;
+          width: 220px;
+          padding: 0 10px;
+        }
       }
     }
   }
+}
+
+.modal-back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  background: #808080bd;
 }

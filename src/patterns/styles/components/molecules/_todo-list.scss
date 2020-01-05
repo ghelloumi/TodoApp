@@ -1,6 +1,8 @@
 .todo-list {
-  > p {
-    color: blue;
+  @include flex-center();
+
+  > ul {
+    padding: 0;
   }
 
   .todo-item {

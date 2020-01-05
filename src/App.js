@@ -6,20 +6,17 @@ import Container from "./patterns/components/organisms/Container"
 import configureStore from "./Redux/configureStore"
 
 const store = configureStore()
+let previousTodoListState = store.getState().todoList
+store.subscribe(() => {
+  const {todoList} = store.getState()
+  if (previousTodoListState !== todoList) {
+    previousTodoListState = todoList
+    console.log(todoList)
+    localStorage.setItem('todoList', JSON.stringify(todoList))
+  }
+})
 
 export default class App extends Component {
-  componentWillMount() {
-    let previousTodoListState = store.getState().todoList
-    store.subscribe(() => {
-      const {todoList} = store.getState()
-      if (previousTodoListState !== todoList) {
-        previousTodoListState = todoList
-        console.log(todoList)
-        localStorage.setItem('todoList', JSON.stringify(todoList))
-      }
-    })
-  }
-
   render() {
     return (
       <Provider

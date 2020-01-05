@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import TodoList from "../molecules/TodoList"
 import AddTodo from "../molecules/AddTodo"
-import { TEXTS } from "../../../config/constants"
 import FilterTodo from "../molecules/FilterTodo"
 
 export default class Container extends Component{

@@ -2,9 +2,11 @@
   height: 47px;
   width: 100px;
   padding: 10px;
-  font-size: 15px;
-  border: 1px solid #999999;
+  font-size: 12px;
+  border: 1px solid #d3d3d3;
   cursor: pointer;
+  font-weight: bold;
+  line-height: 15px;
   @include flex-center();
 
   &:not(&-filter):not(&-modal){
@@ -23,20 +25,15 @@
     margin: 0 10px
   }
 
-  &-update-title {
-
+  &-modal {
+    height: 40px;
+    background: #fcfcfc;
+    border: 1px solid #d1d1d1;
   }
 
-  &-delete {
-
-  }
-
-  &-check {
-
-  }
-
-  &-add {
-
+  &:disabled {
+    background: #acacac;
+    color: #363636;
   }
 }
 

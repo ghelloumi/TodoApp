@@ -33,7 +33,7 @@ const todoList = (state = [], action) => {
   }
 }
 
-const visibilityFilter = (state = ACTIONS.SHOW_ALL, action) => {
+const visibilityFilter = (state = ACTIONS.SHOW_IN_PROGRESS, action) => {
   switch (action.type) {
     case ACTIONS.SET_VISIBILITY_FILTER:
       return action.filter

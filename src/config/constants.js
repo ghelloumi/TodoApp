@@ -19,7 +19,8 @@ export const ACTIONS = {
 
 export const TEXTS = {
   title: "Welcome to todo app",
-  AddTodoButtonText: "Add todo",
+  addTodoButtonText: "Add todo",
+  generateRandomTodo: "Add random",
   done: "done todos",
   inProgress: "In progress todos",
   allTodo: "All todos",
@@ -38,3 +39,5 @@ export const ICONS = {
   filterIcon,
   closeIcon
 }
+
+export const RANDOM_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 "

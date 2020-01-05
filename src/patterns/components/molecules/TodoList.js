@@ -8,28 +8,36 @@ import { handleCheckTodoAction, handleDeleteTodoAction, handleEditTodoAction } f
 import Modal from "./Modal"
 
 class TodoList extends Component {
+  handleEditTodo = (id) => {
+    this.props.handleEditTodo(id)
+    // document.body.style.
+  }
 
   render() {
-    const {todoList, modalParams, handleCheckTodo, handleDeleteTodo, handleEditTodo} = this.props
+    const {todoList, modalParams, handleCheckTodo, handleDeleteTodo} = this.props
 
     return (
       <div className="todo-list">
-        <p>Todo List</p>
-        <ul>
-          {todoList && todoList.map(e => {
-            return (
-              <li className="todo-item" key={e.id}>
-                <Input readOnly value={e.description}/>
-                <Button className="todo-button-update-title" icon={ICONS.editIcon}
-                        onClick={() => handleEditTodo(e.id)}/>
-                <Button className="todo-button-delete" icon={ICONS.deleteIcon}
-                        onClick={() => handleDeleteTodo(e.id)}/>
-                <Button className="todo-button-check" icon={ICONS.checkIcon} onClick={() => handleCheckTodo(e.id)}/>
-              </li>
-            )
-          })}
-        </ul>
-        {modalParams.modalVisibility && <Modal/>}
+        {(todoList && !!todoList.length) && <React.Fragment>
+          <ul>
+            {todoList.reverse().map(e => {
+              return (
+                <li className="todo-item" key={e.id}>
+                  <Input readOnly value={e.description}/>
+                  <Button className="todo-button-update-title" icon={ICONS.editIcon}
+                          onClick={() => this.handleEditTodo(e.id)}/>
+                  <Button className="todo-button-delete" icon={ICONS.deleteIcon}
+                          onClick={() => handleDeleteTodo(e.id)}/>
+                  <Button className="todo-button-check" icon={ICONS.checkIcon} onClick={() => handleCheckTodo(e.id)}/>
+                </li>
+              )
+            })}
+          </ul>
+          {modalParams.modalVisibility && <React.Fragment>
+            <Modal/>
+            <div className="modal-back"/>
+          </React.Fragment>}
+        </React.Fragment>}
       </div>
     )
   }
