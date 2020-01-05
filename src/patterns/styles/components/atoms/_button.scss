@@ -1,0 +1,42 @@
+.todo-button {
+  height: 47px;
+  width: 100px;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #999999;
+  cursor: pointer;
+  @include flex-center();
+
+  &:not(&-filter):not(&-modal){
+    border-left: 0;
+  }
+
+  > img {
+    height: 20px;
+  }
+
+  &-update-title, &-delete, &-check {
+    width: 50px;
+  }
+
+  &-filter {
+    margin: 0 10px
+  }
+
+  &-update-title {
+
+  }
+
+  &-delete {
+
+  }
+
+  &-check {
+
+  }
+
+  &-add {
+
+  }
+}
+

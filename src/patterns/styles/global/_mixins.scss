@@ -1,0 +1,10 @@
+@mixin flex-center($flex-direction: column) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $flex-direction;
+}
+
+@mixin todo-form() {
+  @include flex-center($flex-direction: row);
+}

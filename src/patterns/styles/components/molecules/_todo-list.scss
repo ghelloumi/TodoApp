@@ -1,0 +1,10 @@
+.todo-list {
+  > p {
+    color: blue;
+  }
+
+  .todo-item {
+    @include todo-form();
+    margin: 16px 0;
+  }
+}

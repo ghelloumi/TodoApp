@@ -1,0 +1,44 @@
+.edit-todo-modal {
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  border: 1px solid grey;
+
+  > h2 {
+    text-align: center;
+  }
+
+  .todo-button-close {
+    background: transparent;
+    border: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  .todo-modal {
+    display: flex;
+    margin: 20px 85px 20px 20px;
+
+    &-picture {
+      > img {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+      }
+    }
+
+    &-content {
+      margin-left: 50px;
+
+      &-description {
+
+      }
+
+      &-state {
+
+      }
+    }
+  }
+}

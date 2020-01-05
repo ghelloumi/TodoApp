@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { Provider } from 'react-redux'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Title from "./patterns/components/organisms/Title"
+import Container from "./patterns/components/organisms/Container"
+import configureStore from "./Redux/configureStore"
+
+const store = configureStore()
+
+export default class App extends Component {
+  componentWillMount() {
+    let previousTodoListState = store.getState().todoList
+    store.subscribe(() => {
+      const {todoList} = store.getState()
+      if (previousTodoListState !== todoList) {
+        previousTodoListState = todoList
+        console.log(todoList)
+        localStorage.setItem('todoList', JSON.stringify(todoList))
+      }
+    })
+  }
+
+  render() {
+    return (
+      <Provider
+        store={store}>
+        <div className="App">
+          <Title/>
+          <Container/>
+        </div>
+      </Provider>
+    )
+  }
 }
-
-export default App;
