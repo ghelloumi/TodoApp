@@ -17,6 +17,7 @@ const AddTodo = () => {
   }
 
   const handleAddTodo = async (randomTodo) => {
+    console.log('kkkkkkkkkkk',randomTodo)
     if (!addTodoText.trim() && !randomTodo) {
       return
     }
@@ -30,7 +31,7 @@ const AddTodo = () => {
     }
 
     let randomText = ''
-    if (randomTodo) {
+    if (randomTodo !== '') {
       for (let i = 0; i < 20; i++) {
         randomText += RANDOM_CHARACTERS.charAt(Math.floor(Math.random() * RANDOM_CHARACTERS.length))
       }
@@ -55,7 +56,7 @@ const AddTodo = () => {
              onChange={handleAddTodoTextChange}
              onKeyDown={(e) => e.key === 'Enter' ? handleAddTodo() : null}
       />
-      <Button className="todo-button-add" text={TEXTS.addTodoButtonText} onClick={handleAddTodo}/>
+      <Button className="todo-button-add" text={TEXTS.addTodoButtonText} onClick={() => handleAddTodo()}/>
       <Button className="todo-button-add" text={TEXTS.generateRandomTodo} onClick={() => handleAddTodo(true)}/>
     </div>
   )

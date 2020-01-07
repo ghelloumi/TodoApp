@@ -2,7 +2,10 @@
   @include flex-center();
 
   > ul {
-    padding: 0;
+    scroll-behavior: revert;
+    height: 500px;
+    overflow-y: auto;
+    padding: 0 18px;
   }
 
   .todo-item {

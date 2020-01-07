@@ -11,7 +11,6 @@ store.subscribe(() => {
   const {todoList} = store.getState()
   if (previousTodoListState !== todoList) {
     previousTodoListState = todoList
-    console.log(todoList)
     localStorage.setItem('todoList', JSON.stringify(todoList))
   }
 })

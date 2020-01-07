@@ -4,17 +4,33 @@ import { connect } from 'react-redux'
 import Input from "../atoms/Input"
 import Button from "../atoms/Button"
 import { ACTIONS, ICONS } from "../../../config/constants"
-import { handleCheckTodoAction, handleDeleteTodoAction, handleEditTodoAction } from "../../../Redux/actions"
+import {
+  completeEditTodoAction,
+  handleCheckTodoAction,
+  handleDeleteTodoAction,
+  handleEditTodoAction
+} from "../../../Redux/actions"
 import Modal from "./Modal"
 
 class TodoList extends Component {
   handleEditTodo = (id) => {
-    this.props.handleEditTodo(id)
-    // document.body.style.
+    const {handleCloseModal, handleEditTodo} = this.props
+
+    handleEditTodo(id)
+    window.addEventListener('click', (e) => {
+      const target = e.target
+      if (target && target.className.includes('modal-back')) {
+        handleCloseModal()
+      }
+
+    })
   }
 
   render() {
-    const {todoList, modalParams, handleCheckTodo, handleDeleteTodo} = this.props
+    const {
+      todoList,
+      modalParams, handleCheckTodo, handleDeleteTodo
+    } = this.props
 
     return (
       <div className="todo-list">
@@ -64,7 +80,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   handleCheckTodo: id => dispatch(handleCheckTodoAction(id)),
   handleDeleteTodo: id => dispatch(handleDeleteTodoAction(id)),
-  handleEditTodo: id => dispatch(handleEditTodoAction(id))
+  handleEditTodo: id => dispatch(handleEditTodoAction(id)),
+  handleCloseModal: () => dispatch(completeEditTodoAction())
 })
 
 export default connect(
