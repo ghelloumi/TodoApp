@@ -21,8 +21,16 @@ class TodoList extends Component {
       const target = e.target
       if (target && target.className.includes('modal-back')) {
         handleCloseModal()
+        window.removeEventListener('click', null)
       }
+    })
 
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Escape') {
+          handleCloseModal()
+          window.removeEventListener('keydown', null)
+
+      }
     })
   }
 
